@@ -58,7 +58,7 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 # ROOT_URLCONF = 'backend.urls'
-ROOT_URLCONF = 'backend.backend.urls'
+ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +76,7 @@ TEMPLATES = [
 ]
 
 # WSGI_APPLICATION = 'backend.wsgi.application'
-WSGI_APPLICATION = 'backend.backend.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
