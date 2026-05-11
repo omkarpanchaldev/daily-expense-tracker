@@ -26,7 +26,7 @@ const AddExpense = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/add_expense/", {
+            const response = await fetch("http://https://daily-expense-tracker-1mso.onrender.com/api/add_expense/", {
                 method: 'POST',
                 header: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

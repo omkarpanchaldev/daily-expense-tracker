@@ -468,7 +468,7 @@ const Dashboard = () => {
     setError('');
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/manage_expense/${userId}`);
+      const response = await fetch(`http://https://daily-expense-tracker-1mso.onrender.com/api/manage_expense/${userId}`);
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }

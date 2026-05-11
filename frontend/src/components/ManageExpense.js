@@ -35,7 +35,7 @@ const ManageExpense = () => {
     // This will fetch expense from the backend
     const fetchExpenses = async (userId) => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/manage_expense/${userId}`);
+            const response = await fetch(`http://https://daily-expense-tracker-1mso.onrender.com/api/manage_expense/${userId}`);
             const data = await response.json();
             setExpenses(data);
         }
@@ -47,7 +47,7 @@ const ManageExpense = () => {
     /// This will update the exiting expense from the backend
     const handleUpdate = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/update_expense/${editExpense.id}/`, {
+            const response = await fetch(`http://https://daily-expense-tracker-1mso.onrender.com/api/update_expense/${editExpense.id}/`, {
                 method: 'PUT',
                 header: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(editExpense)
@@ -72,7 +72,7 @@ const ManageExpense = () => {
         if (!deleteExpense) return;
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/delete_expense/${deleteExpense.id}/`, {
+            const response = await fetch(`http://https://daily-expense-tracker-1mso.onrender.com/api/delete_expense/${deleteExpense.id}/`, {
                 method: 'DELETE',
             });
             if (response.status === 200) {

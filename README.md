@@ -80,7 +80,7 @@ All API endpoints are mounted using:
 - `backend/backend/urls.py` → `path('api/', include('expense.urls'))`
 
 Base URL:
-- `http://127.0.0.1:8000/api/`
+- `http://https://daily-expense-tracker-1mso.onrender.com/api/`
 
 ### Key Endpoints
 Implemented in `backend/expense/urls.py` and handled in `backend/expense/views.py`:
@@ -167,7 +167,7 @@ The dashboard includes a regression-style forecasting computation for upcoming s
    - `python manage.py runserver`
 
 Backend runs on:
-- `http://127.0.0.1:8000`
+- `http://https://daily-expense-tracker-1mso.onrender.com`
 
 ### Frontend
 1. Go to the frontend folder:
@@ -185,7 +185,7 @@ Frontend runs on:
 ## CORS & API Integration
 During development, React runs on a different port than Django. To allow cross-origin requests:
 - Django enables CORS via `corsheaders`.
-- The frontend sends requests to `http://127.0.0.1:8000/api/...`.
+- The frontend sends requests to `http://https://daily-expense-tracker-1mso.onrender.com/api/...`.
 
 ---
 
