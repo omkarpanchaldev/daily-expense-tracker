@@ -1,0 +1,26 @@
+# backend/backend/__pycache__/
+# /backend/backend/__pycache__
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store

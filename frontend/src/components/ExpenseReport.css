@@ -1,0 +1,857 @@
+/* Expense Report Page Styles */
+
+/* Main Container */
+.expense-report-container {
+    min-height: 100vh;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shining Animation */
+@keyframes shineLeftToRight {
+    0% {
+        left: -150%;
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        left: 150%;
+        opacity: 0;
+    }
+}
+
+@keyframes textShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.3;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.3;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes shimmerWave {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Bar Graph Background */
+.report-bar-graph {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 400px;
+    height: 180px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.report-bar-graph::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shine 3s ease-in-out infinite;
+}
+
+.report-bar-graph svg {
+    width: 100%;
+    height: 100%;
+}
+
+.report-bar-graph svg rect {
+    fill: #667eea;
+    rx: 3;
+}
+
+.report-bar-graph svg rect:nth-child(1) { animation: growBar1 3s ease-out forwards; }
+.report-bar-graph svg rect:nth-child(2) { animation: growBar2 3s ease-out 0.2s forwards; }
+.report-bar-graph svg rect:nth-child(3) { animation: growBar3 3s ease-out 0.4s forwards; }
+.report-bar-graph svg rect:nth-child(4) { animation: growBar4 3s ease-out 0.6s forwards; }
+.report-bar-graph svg rect:nth-child(5) { animation: growBar5 3s ease-out 0.8s forwards; }
+.report-bar-graph svg rect:nth-child(6) { animation: growBar6 3s ease-out 1s forwards; }
+
+@keyframes growBar1 { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(0.4); transform-origin: bottom; } }
+@keyframes growBar2 { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(0.7); transform-origin: bottom; } }
+@keyframes growBar3 { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(0.5); transform-origin: bottom; } }
+@keyframes growBar4 { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(0.85); transform-origin: bottom; } }
+@keyframes growBar5 { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(0.6); transform-origin: bottom; } }
+@keyframes growBar6 { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(0.3); transform-origin: bottom; } }
+
+/* Secondary Bar Graph */
+.report-bar-graph-2 {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 280px;
+    height: 140px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.report-bar-graph-2 svg {
+    width: 100%;
+    height: 100%;
+}
+
+.report-bar-graph-2 svg rect {
+    fill: #43e97b;
+    rx: 3;
+}
+
+/* Floating Background Icons */
+.report-bg-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+    color: #667eea;
+}
+
+.report-bg-icon-1 { top: 10%; left: 15%; font-size: 2.5rem; color: #667eea; animation: floatIcon 5s ease-in-out infinite; }
+.report-bg-icon-2 { top: 20%; right: 25%; font-size: 2rem; color: #764ba2; animation: floatIcon 6s ease-in-out 1s infinite; }
+.report-bg-icon-3 { bottom: 30%; left: 20%; font-size: 2.2rem; color: #43e97b; animation: floatIcon 7s ease-in-out 2s infinite; }
+.report-bg-icon-4 { bottom: 15%; right: 35%; font-size: 1.8rem; color: #f093fb; animation: floatIcon 5.5s ease-in-out 0.5s infinite; }
+.report-bg-icon-5 { top: 45%; right: 15%; font-size: 2rem; color: #4facfe; animation: floatIcon 6.5s ease-in-out 1.5s infinite; }
+.report-bg-icon-6 { bottom: 40%; left: 8%; font-size: 1.6rem; color: #f5576c; animation: floatIcon 5s ease-in-out 2.5s infinite; }
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* Pie Chart Background */
+.report-pie-chart {
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+    animation: rotatePie 20s linear infinite;
+}
+
+.report-pie-chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes rotatePie {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Line Graph Background */
+.report-line-graph {
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+    width: 300px;
+    height: 100px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.report-line-graph svg {
+    width: 100%;
+    height: 100%;
+}
+
+.report-line-graph svg path {
+    fill: none;
+    stroke: #667eea;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Red Line Graph */
+.report-line-graph-red {
+    position: absolute;
+    top: 25%;
+    right: 20%;
+    width: 250px;
+    height: 80px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.report-line-graph-red svg {
+    width: 100%;
+    height: 100%;
+}
+
+.report-line-graph-red svg path {
+    fill: none;
+    stroke: #ff6b6b;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Green Line Graph */
+.report-line-graph-green {
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    width: 200px;
+    height: 70px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.report-line-graph-green svg {
+    width: 100%;
+    height: 100%;
+}
+
+.report-line-graph-green svg path {
+    fill: none;
+    stroke: #43e97b;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Floating Background Shapes */
+.report-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: floatReportShape 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+.report-shape-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.report-shape-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    top: 50%;
+    right: -50px;
+    animation-delay: 1s;
+}
+
+.report-shape-3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    bottom: 10%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.report-shape-4 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    bottom: -50px;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+@keyframes floatReportShape {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+/* Report Content */
+.expense-report-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title Styles */
+.report-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.report-title span {
+    font-weight: 800;
+    color: #000;
+    position: relative;
+}
+
+.report-title span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+    animation: shineLeftToRight 3s ease-in-out infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    pointer-events: none;
+}
+
+.report-title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 14px;
+    box-shadow: 
+        0 6px 20px rgba(102, 126, 234, 0.4),
+        0 0 15px rgba(102, 126, 234, 0.2),
+        inset 0 -3px 10px rgba(0, 0, 0, 0.1),
+        inset 0 3px 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.report-title-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+    animation: shineLeftToRight 3s ease-in-out infinite;
+}
+
+.report-title-icon i {
+    font-size: 1.8rem;
+    color: #000;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 6px 20px rgba(102, 126, 234, 0.4),
+            0 0 15px rgba(102, 126, 234, 0.2),
+            inset 0 -3px 10px rgba(0, 0, 0, 0.1),
+            inset 0 3px 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 10px 30px rgba(102, 126, 234, 0.5),
+            0 0 25px rgba(102, 126, 234, 0.3),
+            inset 0 -3px 10px rgba(0, 0, 0, 0.1),
+            inset 0 3px 10px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.report-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Search Form Styles */
+.report-form-container {
+    background: white;
+    border-radius: 16px;
+    padding: 15px 20px;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.15),
+        0 5px 15px rgba(118, 75, 162, 0.1),
+        0 0 0 1px rgba(102, 126, 234, 0.1);
+    margin-bottom: 1.5rem;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.report-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(102,126,234,0.1) 50%, transparent 100%);
+    animation: shine 4s ease-in-out infinite;
+}
+
+.report-form-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.report-form-group {
+    flex: 0 1 auto;
+    min-width: 150px;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.report-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.report-input-icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid #667eea;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.report-form-control {
+    width: 100%;
+    padding: 10px 14px 10px 52px;
+    font-size: 0.85rem;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    transition: all 0.3s ease;
+    outline: none;
+    line-height: 1;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+.report-form-control::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    animation: shine 3s ease-in-out infinite;
+}
+
+.report-form-control:focus {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 
+        0 0 0 3px rgba(102, 126, 234, 0.2),
+        0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.report-form-control:focus + .report-input-icon,
+.report-input-wrapper:focus-within .report-input-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+}
+
+.report-form-control::placeholder {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.report-search-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 
+        0 4px 15px rgba(102, 126, 234, 0.3),
+        0 0 0 0 rgba(102, 126, 234, 0.4);
+    height: 38px;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.report-search-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+    animation: shineLeftToRight 2.5s ease-in-out infinite;
+}
+
+.report-search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(102, 126, 234, 0.4),
+        0 0 20px rgba(102, 126, 234, 0.3);
+    color: white;
+}
+
+.report-search-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 4px 15px rgba(102, 126, 234, 0.3),
+        0 0 10px rgba(102, 126, 234, 0.2);
+}
+
+/* Table Styles */
+.report-table-container {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.15),
+        0 5px 15px rgba(118, 75, 162, 0.1),
+        0 0 0 1px rgba(102, 126, 234, 0.1);
+    margin: 0 auto 0 auto;
+    max-width: 75%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.report-table-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(102,126,234,0.08) 50%, transparent 100%);
+    animation: shine 5s ease-in-out infinite;
+}
+
+.report-table {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    flex-grow: 1;
+}
+
+.report-table thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    position: relative;
+    overflow: hidden;
+}
+
+.report-table thead th::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    animation: shine 3s ease-in-out infinite;
+}
+
+.report-table thead th:first-child {
+    width: 60px;
+}
+
+.report-table thead th:nth-child(2) {
+    width: 130px;
+}
+
+.report-table thead th:nth-child(3) {
+    width: auto;
+}
+
+.report-table thead th:nth-child(4) {
+    width: 120px;
+}
+
+.report-table tbody td {
+    padding: 8px 12px;
+    vertical-align: middle;
+    text-align: center;
+    color: #444;
+    border-bottom: 1px solid #e8ecf1;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+}
+
+.report-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.report-table tbody tr:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.15);
+}
+
+.report-table tbody tr:nth-child(odd) {
+    background: #fafbfc;
+}
+
+.report-table tbody tr:nth-child(odd):hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+}
+
+.report-table tbody td:first-child {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.report-table tbody td:nth-child(2) {
+    font-weight: 500;
+    color: #555;
+}
+
+.report-table tbody td:nth-child(3) {
+    font-style: italic;
+    color: #333;
+    text-align: center;
+}
+
+.report-table tbody td:nth-child(4) {
+    font-weight: 600;
+    color: #333;
+}
+
+.report-table tfoot {
+    border-top: none;
+    margin-top: auto;
+}
+
+.report-table tfoot tr {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%) !important;
+}
+
+.report-table tfoot td {
+    padding: 8px 15px;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: none;
+    border-top: 1px solid #e8ecf1;
+    line-height: 1.2;
+}
+
+.report-grand-total-label {
+    text-align: right;
+    color: #43e97b;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-right: 10px;
+}
+
+.report-grand-total-value {
+    color: #43e97b;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 
+        0 1px 2px rgba(67, 233, 123, 0.3),
+        0 0 10px rgba(67, 233, 123, 0.2);
+}
+
+/* Empty State */
+.report-empty-state {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: #888;
+}
+
+.report-empty-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+    animation: pulseEmpty 2s ease-in-out infinite;
+}
+
+.report-empty-icon i {
+    font-size: 1.6rem;
+    color: white;
+}
+
+@keyframes pulseEmpty {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 8px 20px rgba(102, 126, 234, 0.35),
+            0 0 10px rgba(102, 126, 234, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 15px 35px rgba(102, 126, 234, 0.45),
+            0 0 25px rgba(102, 126, 234, 0.3);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 
+            0 8px 20px rgba(102, 126, 234, 0.35),
+            0 0 10px rgba(102, 126, 234, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 12px 30px rgba(102, 126, 234, 0.5),
+            0 0 20px rgba(102, 126, 234, 0.3),
+            0 0 30px rgba(102, 126, 234, 0.2);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .expense-report-container {
+        padding: 1rem;
+    }
+
+    .report-title {
+        font-size: 1.5rem;
+    }
+
+    .report-title-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .report-title-icon i {
+        font-size: 1.2rem;
+    }
+
+    .report-form-row {
+        flex-direction: column;
+    }
+
+    .report-form-group {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .report-search-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .report-table {
+        font-size: 0.8rem;
+    }
+
+    .report-table thead th,
+    .report-table tbody td {
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .report-table-container {
+        width: 95%;
+        border-radius: 12px;
+        overflow-x: auto;
+    }
+
+    .report-table {
+        min-width: 450px;
+    }
+}
+
