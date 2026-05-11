@@ -18,7 +18,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("https://https://daily-expense-tracker-1mso.onrender.com/api/login/", {
+            const response = await fetch("https://daily-expense-tracker-1mso.onrender.com/api/login/", {
                 method: 'POST',
                 header: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
