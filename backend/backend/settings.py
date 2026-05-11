@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-23uf0=_c21=gv6l*t@s16x_#6o!fo5(^@w5$!7g$u$m(l49=xv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '0.0.0.0']
+# ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -73,7 +74,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+# WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = 'backend.backend.wsgi.application'
 
 
 # Database
